@@ -185,7 +185,7 @@ export default function Form({ setEvents, setOpen }: Props) {
                   control={
                     <Checkbox
                       name={x}
-                      checked={event.symptomes.includes(y)}
+                      checked={event.symptomes !== undefined && event.symptomes.includes(y)}
                       onChange={() => handleChange(y, "symptomes")}
                     />
                   }
@@ -203,7 +203,7 @@ export default function Form({ setEvents, setOpen }: Props) {
                   control={
                     <Checkbox
                       name={x}
-                      checked={event.locations.includes(y)}
+                      checked={event.locations !== undefined &&  event.locations.includes(y)}
                       onChange={() => handleChange(y, "locations")}
                     />
                   }
@@ -221,7 +221,7 @@ export default function Form({ setEvents, setOpen }: Props) {
                   control={
                     <Checkbox
                       name={x}
-                      checked={event.medications.includes(y)}
+                      checked={event.medications !== undefined && event.medications.includes(y)}
                       onChange={() => handleChange(y, "medications")}
                     />
                   }
