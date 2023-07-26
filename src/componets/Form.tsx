@@ -76,7 +76,7 @@ export default function Form({ setEvents, setOpen }: Props) {
     try {
       const newEvent = { ...event, user_id: user?.id }; 
       const { data, error } = await supabase
-        .from<Event>("events")
+        .from("events")
         .insert(newEvent); 
       if (data) {
         setEvents((prevEvents) => [...prevEvents, newEvent]);
