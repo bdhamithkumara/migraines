@@ -14,12 +14,24 @@ import {
   Alert,
 } from "@mui/material";
 import { DateTimePicker } from "@mui/x-date-pickers";
-import { Event } from "@/types";
+// import { Event } from "@/types";
 import { LoadingButton } from "@mui/lab";
 import config from "../config"
 import supabase from "../../supabase";
 import { useAuthContext } from "@/app/context";
 
+type Event = {
+  id?: string; // supabase
+  created_at?: string; // supabase
+  updated_at?: string; // supabase
+  user_id?: string;
+  date?: string | null;
+  duration?: number;
+  locations?: [number?];
+  symptomes?: [number?];
+  medications?: [number?];
+  count?: number;
+}
 
 type Props = {
   setEvents: React.Dispatch<React.SetStateAction<Event[]>>;
