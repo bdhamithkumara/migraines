@@ -57,7 +57,7 @@ export default function LandingPage() {
               <TextField
                 sx={{ mr: 2 }}
                 size="small"
-                label="me@mail.com"
+                label="example@mail.com"
                 variant="outlined"
                 onChange={(e) => setEmail(e.target.value)}
               />
