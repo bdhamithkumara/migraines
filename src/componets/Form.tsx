@@ -20,6 +20,7 @@ import config from "../config"
 import supabase from "../../supabase";
 import { useAuthContext } from "@/app/context";
 
+
 type Props = {
   setEvents: React.Dispatch<React.SetStateAction<Event[]>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,17 +41,16 @@ export default function Form({ setEvents, setOpen }: Props) {
   });
 
   const handleChange = (index: number, key: keyof Event) => {
-    if (event[key].includes(index)) {
+    if (Array.isArray(event[key]) && (event[key] as number[]).includes(index)) {
       setEvent((prevState) => ({
         ...prevState,
-        [key]: prevState[key].filter((x) => x !== index), 
+        [key]: (prevState[key] as number[]).filter((x) => x !== index), 
       }));
       return;
     }
     setEvent((prevState) => ({
-      // Utilisation de prevState
       ...prevState,
-      [key]: [...prevState[key], index], // Utilisation de prevState
+      [key]: [...(prevState[key] as number[]), index], 
     }));
   };
 
