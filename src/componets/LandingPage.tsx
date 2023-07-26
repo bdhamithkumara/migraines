@@ -9,7 +9,7 @@ import supabase from "../../supabase";
 
 
 export default function LandingPage() {
-    const [email, setEmail] = useState(null);
+    const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
   
