@@ -19,7 +19,8 @@ import { LoadingButton } from "@mui/lab";
 import config from "../config"
 import supabase from "../../supabase";
 import { useAuthContext } from "@/app/context";
-import { MaterialUiPickersDate } from '@mui/lab/DateTimePicker';
+
+
 
 type Event = {
   id?: string; // supabase
@@ -113,10 +114,11 @@ export default function Form({ setEvents, setOpen }: Props) {
             <p>When was that migraine?</p>
             <DateTimePicker
               label="Date & time"
-              onChange={(newValue:MaterialUiPickersDate) =>
+              onChange={(newValue) =>
                 setEvent({
                   ...event,
-                  date: dayjs(newValue.toString()).format(),
+                  // date: dayjs(newValue.toString()).format(),
+                  date: newValue ? dayjs(newValue.toString()).format() : '',
                 })
               }
             />
