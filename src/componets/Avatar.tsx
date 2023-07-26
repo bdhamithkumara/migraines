@@ -4,7 +4,7 @@ import { Avatar } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuthContext } from "@/app/context";
 
-export default function AvatarComponent({ size }: { size: string }) {
+export default function AvatarComponent({ size  }: { size: string }) {
   const { user } = useAuthContext();
   const router = useRouter();
   const getFirstLetter = () => {

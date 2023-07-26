@@ -43,7 +43,7 @@ export default function Header({ switchTheme }: { switchTheme: any }) {
                   }
                   label="Night mode"
                 />
-                <AvatarComponent user={user} />
+                {/* <AvatarComponent user={user} /> */}
               </Grid>
             )}
           </Grid>
