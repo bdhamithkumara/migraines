@@ -14,21 +14,25 @@ export default function LandingPage() {
     const [success, setSuccess] = useState(false);
   
     const login = async () => {
-      if (!email) alert("Please enter a valid email");
-      try {
-        setLoading(true);
-        let { data, error } = await supabase.auth.signInWithOtp({
-          email,
-        });
-  
-        if (data) {
-          setSuccess(true);
+      if (!email) 
+        {
+          alert("Please enter a valid email");
+        }else{
+          try {
+            setLoading(true);
+            let { data, error } = await supabase.auth.signInWithOtp({
+              email,
+            });
+      
+            if (data) {
+              setSuccess(true);
+            }
+          } catch (error) {
+            console.log(error);
+          } finally {
+            setLoading(false);
+          }
         }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
     };
     return (
       <Grid
